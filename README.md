@@ -1,17 +1,21 @@
 # Bingle Spring Boot Web Services
 
+## Environments
+* java 1.8
+
+
 ## Acknowledgements
 * [skeleton project : https://github.com/mwarman/skeleton-ws-spring-boot]
 * port : 8080(application.properties)
-* Compile : mvn install OR STS상에서 Spring Boot App으로 실행
-* Run : 프로젝트 Root상에서 bingle-spring-boot-[version]-launch.jar 실행
-  (java -jar [name].jar)
+* Compile, Run - `mvn spring-boot:run` in RootPath(See in **Running**) 
 * 폴더 : (image - 변환된 이미지 저장)/(temp - App에서 전송된 압축파일 저장)
 * RestAPI : [Bingle_개발자료_작업일지 - Server통신방법](https://docs.google.com/spreadsheets/d/1Visq3ClkzGZZ2HbAoVCEHRcwZOBIdfoJ2_2SDcrTyx4/edit#gid=883330503)
 참조 
  
- 
-## Reference
+* test : [ip]:[port]/file-upload-test.html 참조
+
+
+## References
 
 * This is a project skeleton for a [Spring Boot](http://projects.spring.io/spring-boot/)
 * [Lean Application Engineering Featuring Backbone.Marionette and the Spring Framework](https://leanpub.com/leanstacks-marionette-spring).
