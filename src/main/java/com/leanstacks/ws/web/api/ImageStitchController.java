@@ -21,7 +21,7 @@ import org.springframework.web.multipart.MultipartFile;
 import com.leanstacks.ws.model.ResultStatus;
 import com.leanstacks.ws.model.StitchResult;
 import com.leanstacks.ws.process.AutopanoProcess;
-import com.leanstacks.ws.process.NadirCapProcess;
+import com.leanstacks.ws.process.NadircapProcess;
 
 import net.lingala.zip4j.core.ZipFile;
 
@@ -46,7 +46,7 @@ public class ImageStitchController extends BaseController {
 	private AutopanoProcess autopanoProcess;
 	
 	@Autowired
-	private NadirCapProcess nadirCapProcess;
+	private NadircapProcess nadircapProcess;
 	
 	/**
 	 * 1. 파일 업로드 후 APS를 이용한 변환 수행
@@ -69,7 +69,7 @@ public class ImageStitchController extends BaseController {
                 // @link http://joda-time.sourceforge.net/apidocs/org/joda/time/format/DateTimeFormat.html
                 final String randomName = DateTime.now().toString("yyyyMMddHHmmssSS");
                 String extractDir = null;
-                String tempFilePath = null;
+                String tempFilePath = Paths.get(tempDir, randomName + ".zip").toString();
                 String fullImageFilePath = null;
                 		
                 BufferedOutputStream stream =
@@ -80,33 +80,28 @@ public class ImageStitchController extends BaseController {
                 
                 if (Files.exists(Paths.get(tempFilePath))) {
                 	extractDir = Paths.get(tempDir, randomName).toString();
-                    tempFilePath = Paths.get(tempDir, randomName + ".zip").toString();
                 	// 중복 파일이 있을 경우 덮어 씌우고, 폴더가 없으면 자동으로 생성한다. 
-                    ZipFile zipFile = new ZipFile(tempFilePath);
+                  ZipFile zipFile = new ZipFile(tempFilePath);
         			
         			// Extracts all files to the path specified
         			zipFile.extractAll(extractDir);
                 }
                 
                 final String imageName = randomName + ".jpg";
-                final String fullXmlPath = autopanoProcess.getAPSXmlPath(extractDir, imageName, imageDir);
+                final String fullXmlPath = autopanoProcess.getAPSXmlPath(extractDir, randomName, imageDir);
                 
                 if (autopanoProcess.run(fullXmlPath) == 0) {
                 	fullImageFilePath = Paths.get(imageDir, imageName).toString();
                 	
-                	if (nadirCapProcess.run(fullImageFilePath) == 0) {
+                	if (nadircapProcess.run(fullImageFilePath) == 0) {
                 		logger.info("Convert Success! : " + fullImageFilePath);
                 	} else {
-                		logger.error("NadirCap Error : " + fullImageFilePath);
-                		throw new Exception("AutopanoProcess Error");
+                		throw new Exception("NadircapProcess Error");
                 	}
                 } else {
-                	logger.error("AutopanoProcess Error : " + fullXmlPath);
             		throw new Exception("AutopanoProcess Error");
                 }
-                
-//                String testImageFilePath = imageDir + "/" + "201509241338057.jpg";
-                
+                                
                 return new ResponseEntity<StitchResult>(
                 		new StitchResult(ResultStatus.OK, fullImageFilePath), HttpStatus.OK);
             } catch (Exception e) {

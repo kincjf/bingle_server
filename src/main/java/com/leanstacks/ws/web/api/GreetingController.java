@@ -243,7 +243,6 @@ public class GreetingController extends BaseController {
 
         logger.info("< sendGreeting");
         return new ResponseEntity<Greeting>(greeting, HttpStatus.OK);
-
     }
 
 }

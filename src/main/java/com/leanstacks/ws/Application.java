@@ -62,20 +62,4 @@ public class Application extends SpringBootServletInitializer {
 
         return cacheManager;
     }
-
-    @Bean
-    public Jaxb2Marshaller marshaller() throws Exception {
-    	Jaxb2Marshaller marshaller = new Jaxb2Marshaller();
-        marshaller.setMarshallerProperties(getMarshallerProperties());
-        marshaller.setClassesToBeBound(APSConfig.class);
-		return marshaller;
-    }
-    
-    @Bean
-    public Map<String, ?> getMarshallerProperties() {
-    	Map<String, Object> map = new HashMap<>();
-        map.put(Marshaller.JAXB_FORMATTED_OUTPUT, true);
-		map.put(Marshaller.JAXB_ENCODING, "UTF-8");
-        return map;    	
-    }
 }

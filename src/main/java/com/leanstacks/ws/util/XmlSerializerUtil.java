@@ -1,5 +1,6 @@
-package com.leanstacks.ws.common;
+package com.leanstacks.ws.util;
 
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -10,10 +11,10 @@ import javax.xml.transform.stream.StreamSource;
 import org.springframework.oxm.Marshaller;
 import org.springframework.oxm.Unmarshaller;
 import org.springframework.oxm.jaxb.Jaxb2Marshaller;
-import org.springframework.stereotype.Component;
+
+import com.google.common.io.Files;
 
 public class XmlSerializerUtil {
-	
 	private Marshaller marshaller;
     private Unmarshaller unmarshaller;
 	
@@ -33,8 +34,18 @@ public class XmlSerializerUtil {
 	 */
 	public void serialize(String fileName, Object target) throws IOException {
         FileOutputStream fos = null;
+        File file = new File(fileName);
+        
+        if (!file.exists()) {
+        	File parent = file.getParentFile();
+        	
+        	if (!parent.exists() && !parent.mkdirs()) {
+        		throw new IOException("Couldn't create dir : " + parent);
+        	}
+        }
+        
         try {
-            fos = new FileOutputStream(fileName);
+            fos = new FileOutputStream(file);
             marshaller.marshal(target, new StreamResult(fos));
         } finally {
         	fos.close();

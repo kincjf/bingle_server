@@ -9,8 +9,8 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.oxm.jaxb.Jaxb2Marshaller;
 
-import com.leanstacks.ws.common.XmlSerializerUtil;
 import com.leanstacks.ws.model.APS.APSConfig;
+import com.leanstacks.ws.util.XmlSerializerUtil;
 
 @Configuration
 public class AppConfig {

@@ -13,3 +13,4 @@ hs_err_pid*
 /src/test/resource/**
 /temp
 /tools
+/image

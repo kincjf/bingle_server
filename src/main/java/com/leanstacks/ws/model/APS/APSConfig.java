@@ -68,10 +68,14 @@ public class APSConfig {
         Maximum2(11),
         Maximum3(12);
     	
-    	private int value;
+    	int value;
     	
-    	private JPEGQuality(int value) {
+    	JPEGQuality(int value) {
     		this.value = value;
+    	}
+    	
+    	public int getValue() {
+    		return value;
     	}
     }
 }
@@ -79,7 +83,7 @@ public class APSConfig {
 //@XmlElement(name = "activation")
 class APSActivation
 {
-    private String code = "W54T-2DNI-YVGY-CB8E-HSZK-DJGZ-JSTA";
+    public String code = "W54T-2DNI-YVGY-CB8E-HSZK-DJGZ-JSTA";
     public boolean userInfo = true;
 }
 
@@ -166,7 +170,7 @@ class APSPano
     public int renderPercent = 100;
 
     @XmlElement(name = "render_fileCompression")
-    public JPEGQuality renderFileCompression = JPEGQuality.Maximum1;
+    public int renderFileCompression = JPEGQuality.Maximum1.getValue();
 
     @XmlElement(name = "render_interpolation")
     public int renderInterpolation = 2;

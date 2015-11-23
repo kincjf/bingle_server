@@ -9,7 +9,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 @Component
-public class NadirCapProcess extends BaseProcess {
+public class NadircapProcess extends BaseProcess {
 	@Value("${stitch.path.tools}")
 	private String toolDir;
 	
@@ -46,7 +46,7 @@ public class NadirCapProcess extends BaseProcess {
 				resultValue = resultHandler.getExitValue();
 			}
 		} catch (InterruptedException e) {
-			logger.error("NadirCapProcess Error : " + e.getMessage());
+			logger.error("NadircapProcess Error : " + e.getMessage());
 			e.printStackTrace();
 		}
 		

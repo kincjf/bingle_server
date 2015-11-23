@@ -10,8 +10,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
-import com.leanstacks.ws.common.XmlSerializerUtil;
 import com.leanstacks.ws.model.APS.APSConfig;
+import com.leanstacks.ws.util.XmlSerializerUtil;
 
 @Component
 public class AutopanoProcess extends BaseProcess {
@@ -23,7 +23,6 @@ public class AutopanoProcess extends BaseProcess {
 	
 	private final String AUTOPANO_SERVER 
 		= Paths.get(toolDir, "AutopanoServer", "AutopanoServer").toString();
-	
 	
 	@Autowired
 	private XmlSerializerUtil xmlSerializeUtil;

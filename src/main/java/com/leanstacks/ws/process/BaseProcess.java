@@ -24,7 +24,7 @@ public class BaseProcess {
 	/**
      * 
      * @param commandLine
-     * @param jobTimeout
+     * @param jobTimeout ms
      * @param exitValue
      * @param inBackground
      * @return
