@@ -5,13 +5,16 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 
 import org.apache.commons.exec.CommandLine;
-import org.springframework.context.annotation.Bean;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 @Component
 public class NadirCapProcess extends BaseProcess {
+	@Value("${stitch.path.tools}")
+	private String toolDir;
+	
 	private final String BSHELL = "sh";
-	private final String NADIR_CAP = "./tools/nadircap.sh";
+	private final String NADIR_CAP = Paths.get(toolDir, "nadircap.sh").toString();
 	private final long jobTimeout = 3000;
 	
 	/**

@@ -7,7 +7,7 @@ import java.nio.file.Paths;
 
 import org.apache.commons.exec.CommandLine;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Bean;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 import com.leanstacks.ws.common.XmlSerializerUtil;
@@ -15,7 +15,11 @@ import com.leanstacks.ws.model.APS.APSConfig;
 
 @Component
 public class AutopanoProcess extends BaseProcess {
-	private final String AUTOPANO_SERVER = "./tools/AutopanoServer/AutopanoServer";
+	@Value("${stitch.path.tools}")
+	private String toolDir;
+	
+	private final String AUTOPANO_SERVER 
+		= Paths.get(toolDir, "AutopanoServer", "AutopanoServer").toString();
 	private final long jobTimeout = 15000;
 	
 	@Autowired

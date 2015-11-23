@@ -11,3 +11,5 @@ hs_err_pid*
 /bingle-spring-boot-0.2-launch.jar
 /bingle-spring-boot-0.2.jar
 /src/test/resource/**
+/temp
+/tools
