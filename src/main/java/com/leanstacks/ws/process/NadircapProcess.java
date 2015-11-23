@@ -6,6 +6,7 @@ import java.nio.file.Paths;
 
 import org.apache.commons.exec.CommandLine;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Component;
 
 @Component
@@ -24,6 +25,7 @@ public class NadircapProcess extends BaseProcess {
 	 * @param imagePath
 	 * @return status 0(Success) | 1(Error) 
 	 */
+	@Bean
 	public int run(String imagePath) {
 		
 		Path path = Paths.get(imagePath);
