@@ -13,9 +13,11 @@ public class NadirCapProcess extends BaseProcess {
 	@Value("${stitch.path.tools}")
 	private String toolDir;
 	
+	@Value("${stitch.nadircap.jobtimeout}")
+	private long jobTimeout;
+
 	private final String BSHELL = "sh";
 	private final String NADIR_CAP = Paths.get(toolDir, "nadircap.sh").toString();
-	private final long jobTimeout = 3000;
 	
 	/**
 	 * 

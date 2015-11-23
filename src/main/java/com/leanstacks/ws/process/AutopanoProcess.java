@@ -18,9 +18,12 @@ public class AutopanoProcess extends BaseProcess {
 	@Value("${stitch.path.tools}")
 	private String toolDir;
 	
+	@Value("${stitch.aps.jobtimeout}")
+	private long jobTimeout;
+	
 	private final String AUTOPANO_SERVER 
 		= Paths.get(toolDir, "AutopanoServer", "AutopanoServer").toString();
-	private final long jobTimeout = 15000;
+	
 	
 	@Autowired
 	private XmlSerializerUtil xmlSerializeUtil;
