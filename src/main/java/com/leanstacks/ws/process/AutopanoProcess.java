@@ -10,22 +10,36 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
-import com.leanstacks.ws.common.XmlSerializerUtil;
 import com.leanstacks.ws.model.APS.APSConfig;
+import com.leanstacks.ws.util.XmlSerializerUtil;
 
 @Component
 public class AutopanoProcess extends BaseProcess {
-	@Value("${stitch.path.tools}")
+
 	private String toolDir;
-	
-	@Value("${stitch.aps.jobtimeout}")
 	private long jobTimeout;
 	
-	private final String AUTOPANO_SERVER 
-		= Paths.get(toolDir, "AutopanoServer", "AutopanoServer").toString();
+	private final String AUTOPANO_SERVER;
 	
 	@Autowired
 	private XmlSerializerUtil xmlSerializeUtil;
+	
+	/**
+	 * must sets value after Bean initialize, it may be null if not.
+	 * @param dir
+	 * @param jobTimeout
+	 */
+	@Autowired
+	public AutopanoProcess(
+			@Value("${stitch.path.tools}") String dir,
+			@Value("${stitch.aps.jobtimeout}") long jobTimeout ) {
+		this.toolDir = dir;
+		this.jobTimeout = jobTimeout;
+		
+		this.AUTOPANO_SERVER = Paths.get(toolDir, "AutopanoServer", "AutopanoServer").toString();
+		
+		logger.debug("toolDir : " + this.toolDir + ", jobTimeout : " + this.jobTimeout);
+	}
 	
 	/**
 	 * 
