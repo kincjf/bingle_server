@@ -96,11 +96,16 @@
 			<artifactId>jackson-datatype-joda</artifactId>
 		</dependency>
 		<dependency>
-			<groupId>org.zeroturnaround</groupId>
-			<artifactId>zt-zip</artifactId>
-			<version>1.8</version>
-			<type>jar</type>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-exec</artifactId>
+			<version>1.3</version>
 		</dependency>
+		<dependency>
+			<groupId>net.lingala.zip4j</groupId>
+			<artifactId>zip4j</artifactId>
+			<version>1.3.2</version>
+		</dependency>
+
 
 		<!-- Dependencies for Swagger -->
 		<dependency>
@@ -120,6 +125,10 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-ws</artifactId>
+		</dependency>
 	</dependencies>
 
 	<build>
@@ -136,9 +145,9 @@
 					</execution>
 				</executions>
 				<configuration>
-				    <classifier>launch</classifier>
-                    <outputDirectory>${project.basedir}</outputDirectory>
-                </configuration>
+					<classifier>launch</classifier>
+					<outputDirectory>${project.basedir}</outputDirectory>
+				</configuration>
 			</plugin>
 			<plugin>
 				<groupId>org.apache.tomcat.maven</groupId>

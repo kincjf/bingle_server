@@ -1,5 +1,10 @@
 package com.leanstacks.ws;
 
+import java.util.HashMap;
+import java.util.Map;
+
+import javax.xml.bind.Marshaller;
+
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
@@ -8,9 +13,12 @@ import org.springframework.cache.CacheManager;
 import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.cache.guava.GuavaCacheManager;
 import org.springframework.context.annotation.Bean;
+import org.springframework.oxm.jaxb.Jaxb2Marshaller;
 import org.springframework.scheduling.annotation.EnableAsync;
 import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
+
+import com.leanstacks.ws.model.APS.APSConfig;
 
 /**
  * Spring Boot main application class.
@@ -55,4 +63,19 @@ public class Application extends SpringBootServletInitializer {
         return cacheManager;
     }
 
+    @Bean
+    public Jaxb2Marshaller marshaller() throws Exception {
+    	Jaxb2Marshaller marshaller = new Jaxb2Marshaller();
+        marshaller.setMarshallerProperties(getMarshallerProperties());
+        marshaller.setClassesToBeBound(APSConfig.class);
+		return marshaller;
+    }
+    
+    @Bean
+    public Map<String, ?> getMarshallerProperties() {
+    	Map<String, Object> map = new HashMap<>();
+        map.put(Marshaller.JAXB_FORMATTED_OUTPUT, true);
+		map.put(Marshaller.JAXB_ENCODING, "UTF-8");
+        return map;    	
+    }
 }
