@@ -14,6 +14,10 @@ import org.springframework.oxm.jaxb.Jaxb2Marshaller;
 
 import com.google.common.io.Files;
 
+/**
+ * Implemented into XML Serializer methods
+ * @author KIMSEONHO
+ */
 public class XmlSerializerUtil {
 	private Marshaller marshaller;
     private Unmarshaller unmarshaller;

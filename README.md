@@ -3,6 +3,10 @@
 ## Environments
 * java 1.8
 
+## Folder
+* image : 변환된 이미지가 저장됨
+* temp : 다운로드된 압축파일 저장, 변환 정보(xml, pano) 보관
+* tools : Autopano, nadircap
 
 ## Acknowledgements
 * [skeleton project : https://github.com/mwarman/skeleton-ws-spring-boot]
@@ -24,7 +28,10 @@
 ### Features
 
 - 압축된 이미지 파일들을 VR파노라마로 변환
-- 변환 과정을 rabbitMQ를 이용하여 client로 전송
+- 변환 과정을 rabbitMQ를 이용하여 client로 전송(구현 예정)
+
+
+--------------------------------------------------------------------
 
 #### RESTful Web Service Family
 The project contains examples of **C**reate, **R**ead, **U**pdate, and **D**elete web services.  The project illustrates the use of `@ExceptionHandler` methods to manage web service responses when common exceptional conditions arise.

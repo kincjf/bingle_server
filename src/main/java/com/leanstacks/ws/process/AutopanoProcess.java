@@ -13,6 +13,10 @@ import org.springframework.stereotype.Component;
 import com.leanstacks.ws.model.APS.APSConfig;
 import com.leanstacks.ws.util.XmlSerializerUtil;
 
+/**
+ * 이미지 변환 엔진을 child process로 실행함
+ * @author KIMSEONHO
+ */
 @Component
 public class AutopanoProcess extends BaseProcess {
 

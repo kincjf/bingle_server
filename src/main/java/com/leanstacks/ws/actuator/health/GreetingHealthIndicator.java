@@ -10,6 +10,9 @@ import org.springframework.stereotype.Component;
 import com.leanstacks.ws.model.Greeting;
 import com.leanstacks.ws.service.GreetingService;
 
+/**
+ * @author Leanstacks Team
+ */
 @Component
 public class GreetingHealthIndicator implements HealthIndicator {
 

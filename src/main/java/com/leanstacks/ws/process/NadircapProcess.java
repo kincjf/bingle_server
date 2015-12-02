@@ -9,6 +9,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
+/**
+ * VR panorama 이미지 아래부분에 nadircap을 덧입힘(크기는 sh파일 참조)
+ * @author KIMSEONHO
+ */
 @Component
 public class NadircapProcess extends BaseProcess {
 

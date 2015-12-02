@@ -11,6 +11,9 @@ import com.leanstacks.ws.model.Account;
  * behaviors exposed by <code>JpaRepository</code> and additional custom
  * behaviors may be defined in this interface.
  * 
+ * references for JPA
+ * @see http://arahansa.github.io/docs_spring/jpa.html
+ * 
  * @author Matt Warman
  */
 @Repository

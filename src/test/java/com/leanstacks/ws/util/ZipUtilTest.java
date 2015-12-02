@@ -3,6 +3,10 @@ package com.leanstacks.ws.util;
 import net.lingala.zip4j.core.ZipFile;
 import net.lingala.zip4j.exception.ZipException;
 
+/**
+ * @author KIMSEONHO
+ *
+ */
 public class ZipUtilTest {
 	
 	public ZipUtilTest() {
