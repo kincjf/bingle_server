@@ -23,6 +23,8 @@
 
 * This is a project skeleton for a [Spring Boot](http://projects.spring.io/spring-boot/)
 * [Lean Application Engineering Featuring Backbone.Marionette and the Spring Framework](https://leanpub.com/leanstacks-marionette-spring).
+* Bean Scope : http://www.egovframe.go.kr/wiki/doku.php?id=egovframework:rte:fdl:ioc_container:bean_scope
+* Annotation Behavior : http://stackoverflow.com/questions/6827752/whats-the-difference-between-component-repository-service-annotations-in
 
 
 ### Features
