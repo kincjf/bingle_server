@@ -7,16 +7,13 @@ import java.nio.file.Paths;
 import org.apache.commons.exec.CommandLine;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
-import org.springframework.web.context.WebApplicationContext;
 
 /**
  * VR panorama 이미지 아래부분에 nadircap을 덧입힘(크기는 sh파일 참조)
  * @author KIMSEONHO
  */
 @Component
-@Scope(value = WebApplicationContext.SCOPE_REQUEST)
 public class NadircapProcess extends BaseProcess {
 
 	private String toolDir;

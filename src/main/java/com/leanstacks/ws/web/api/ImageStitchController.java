@@ -9,6 +9,7 @@ import java.nio.file.Paths;
 import org.joda.time.DateTime;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.Scope;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -16,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.context.WebApplicationContext;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.leanstacks.ws.model.ResultStatus;
@@ -33,6 +35,7 @@ import net.lingala.zip4j.core.ZipFile;
  * @author KIMSEONHO
  */
 @RestController
+@Scope(value = WebApplicationContext.SCOPE_REQUEST)
 public class ImageStitchController extends BaseController {
 //	private String appPath = this.getClass().getResource("/").getPath();
 	

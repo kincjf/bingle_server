@@ -12,8 +12,6 @@ import org.springframework.oxm.Marshaller;
 import org.springframework.oxm.Unmarshaller;
 import org.springframework.oxm.jaxb.Jaxb2Marshaller;
 
-import com.google.common.io.Files;
-
 /**
  * Implemented into XML Serializer methods
  * @author KIMSEONHO

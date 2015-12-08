@@ -86,8 +86,7 @@ public class SecurityConfiguration {
               .sessionCreationPolicy(SessionCreationPolicy.STATELESS);
             
             // @formatter:on
-
-        }
+         }
 
     }
 
