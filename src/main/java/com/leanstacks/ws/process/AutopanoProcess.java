@@ -8,7 +8,9 @@ import java.nio.file.Paths;
 import org.apache.commons.exec.CommandLine;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
+import org.springframework.web.context.WebApplicationContext;
 
 import com.leanstacks.ws.model.APS.APSConfig;
 import com.leanstacks.ws.util.XmlSerializerUtil;
@@ -18,6 +20,7 @@ import com.leanstacks.ws.util.XmlSerializerUtil;
  * @author KIMSEONHO
  */
 @Component
+@Scope(value = WebApplicationContext.SCOPE_REQUEST)
 public class AutopanoProcess extends BaseProcess {
 
 	private String toolDir;
